@@ -15,5 +15,4 @@ export class MercadoPagoController {
   webhook(@Body() body: any) {
     return this.appService.webhook(body);
   }
-
 }

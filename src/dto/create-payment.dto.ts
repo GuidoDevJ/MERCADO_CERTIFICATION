@@ -10,4 +10,7 @@ export class CreatePaymentDto {
     @IsNumber()
     @IsPositive()
     quantity: number;
+    @IsString()
+    @MinLength(1)
+    picture_url: string;
 }

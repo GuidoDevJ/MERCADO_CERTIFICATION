@@ -1,15 +1,17 @@
 import { Injectable, Post } from '@nestjs/common';
-import * as mercadopago from 'mercadopago';
+import { ConfigService } from '@nestjs/config';
+
 import { CreatePaymentDto } from './dto/create-payment.dto';
+import * as mercadopago from 'mercadopago';
 
 @Injectable()
 export class MercadoPagoService {
   
   constructor(
-    
+    private readonly configService:ConfigService
   ) {
     mercadopago?.configure({
-      access_token: 'APP_USR-8709825494258279-092911-227a84b3ec8d8b30fff364888abeb67a-1160706432'
+      access_token: this.configService.get("ACCESS_TOKEN")
     })
   }
   createPayment = async (body: CreatePaymentDto) => {
@@ -36,13 +38,13 @@ export class MercadoPagoService {
             ],
             installments: 6
         },
-        notification_url: "https://6503-181-12-48-31.ngrok-free.app/webhook",
+        notification_url: `${this.configService.get("HOST_URL")}/webhook`,
         external_reference: "guidogauna9@gmail.com"
 
       }
        
       const response = await mercadopago?.preferences.create(preference as any);
-      return response.body.init_point
+      return {url:response.body.init_point}
 }
 async webhook(body: any) {
   console.log(body)
