@@ -22,6 +22,7 @@ export class MercadoPagoService {
             title: body.title,
             unit_price:body.unit_price,
             quantity: body.quantity,
+            picture_url: body.picture_url
           }
         ],
         auto_return: "approved",
