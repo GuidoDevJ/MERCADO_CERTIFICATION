@@ -20,6 +20,6 @@ async function bootstrap() {
 
   // Aplica el middleware CORS a nivel de aplicación
   app.enableCors(corsOptions);
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
