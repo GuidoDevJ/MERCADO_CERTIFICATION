@@ -54,7 +54,6 @@ export class MercadoPagoService {
       return { url: response.sandbox_init_point };
     } catch (e) {
       console.log('Estoy en error ==>', e);
-      return e;
     }
   };
   async webhook(body: any) {
