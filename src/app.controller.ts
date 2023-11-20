@@ -7,7 +7,7 @@ export class MercadoPagoController {
   constructor(private readonly appService: MercadoPagoService) {}
 
   @Post('create-order')
-  createPayment(@Body() body: CreatePaymentDto) {
+  createPayment(@Body() body: any) {
     return this.appService.createPayment(body);
   }
 

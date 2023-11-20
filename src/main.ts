@@ -19,7 +19,13 @@ async function bootstrap() {
   };
 
   // Aplica el middleware CORS a nivel de aplicación
-  app.enableCors(corsOptions);
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
+  });
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

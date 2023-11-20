@@ -51,6 +51,7 @@ export class MercadoPagoService {
           ...preference,
         },
       });
+      console.log('soy el response', response);
       return { url: response.sandbox_init_point };
     } catch (e) {
       console.log('Estoy en error ==>', e);
