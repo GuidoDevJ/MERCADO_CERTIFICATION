@@ -20,7 +20,7 @@ async function bootstrap() {
 
   // Aplica el middleware CORS a nivel de aplicación
   app.enableCors({
-    origin: true,
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
