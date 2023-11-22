@@ -30,7 +30,7 @@ export class MercadoPagoService {
       ],
       auto_return: 'approved',
       back_urls: {
-        success: 'https://www.google.com',
+        success: 'https://dummy-eccomerce.onrender.com/success',
         failure: 'https://www.failure.com',
         pending: 'https://www.pending.com',
       },
